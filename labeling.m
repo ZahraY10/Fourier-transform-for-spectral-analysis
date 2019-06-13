@@ -10,17 +10,17 @@ for k=1:numel(audio_files)
   printf("%s peak = %d\n", audio_files(k).name, tmp(1,1)); 
   if(tmp > 122 - eps && tmp < 122 + eps)
     f = audio_files(k).name;
-    rf = strcat(f,'_M') ;
+    rf = strcat('M_', f) ;
     movefile(fullfile(folder, audio_files(k).name), fullfile(folder, rf));     
     printf("%s peak = %d therefore male voice\n", audio_files(k).name, tmp(1,1)); 
   elseif(tmp > 212 - eps && tmp < 212 + eps) 
     f = audio_files(k).name;
-    rf = strcat(f,'_F') ;
+    rf = strcat('F_', f) ;
     movefile(fullfile(folder, audio_files(k).name), fullfile(folder, rf));     
     printf("%s peak = %d therefore female voice\n", audio_files(k).name, tmp(1,1));
   else
     f = audio_files(k).name;
-    rf = strcat(f,'_U') ;
+    rf = strcat('U_', f) ;
     movefile(fullfile(folder, audio_files(k).name), fullfile(folder, rf));     
     printf("%s peak = %d therefore unknown gender\n", audio_files(k).name, tmp(1,1));
   end 
